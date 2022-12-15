@@ -1,5 +1,5 @@
 .code
-    
+  
 primeira_instrucao:
 
 	LDI ptr1          
@@ -18,7 +18,6 @@ primeira_instrucao:
 	JMP primeira_instrucao
 
 continuar:
-
 	MOV 0
 	STA check_have_number
 
@@ -26,11 +25,10 @@ continuar:
 	ADD grade
 	STA grade
 	
-	CALL print_linha
+
 
 segunda_instrucao:
 
-	
 	LDI ptr2          
 	SUB last_char
 
@@ -47,7 +45,6 @@ segunda_instrucao:
 	JMP segunda_instrucao
 
 entrada_dados:
-
 	LDA teclado
     INT input
 
@@ -63,6 +60,7 @@ have_number:
 	JZ entrada_dados
 
 CALL print_linha
+
 
 print_sucesso:
 
@@ -83,13 +81,13 @@ print_sucesso:
 	JMP print_sucesso
 
 verificar_numero_da_questao:
-
+	CALL print_linha
 	MOV msg_sucesso
 	STA ptr3
 	MOV	1
 	SUB grade
 	JZ continuar
-	CALL print_linha
+	
 
 print_esperar:
 
@@ -263,11 +261,11 @@ end:
 
 	exit: DD 25
 
-	msg_nota1: INITB "1",0
-	msg_nota2: INITB "2",0
-	msg_sucesso: INITB "ok",0
-	msg_espera: INITB "...",0
-	msg_media: INITB "M=",0
+	msg_nota1: INITB "Digite a primeira nota",0
+	msg_nota2: INITB "Digite a segunda nota",0
+	msg_sucesso: INITB "Nota lida com sucesso",0
+	msg_espera: INITB "Calculando...",0
+	msg_media: INITB "Media =",0
 
 	last_char:  DD 0
 
@@ -301,17 +299,3 @@ end:
 	auxiliar: DD 0
 
 .stack 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
