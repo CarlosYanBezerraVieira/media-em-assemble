@@ -45,6 +45,7 @@ segunda_instrucao:
 	JMP segunda_instrucao
 
 entrada_dados:
+
 	LDA teclado
     INT input
 
@@ -299,3 +300,4 @@ end:
 	auxiliar: DD 0
 
 .stack 1
+
